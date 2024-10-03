@@ -4,7 +4,7 @@ import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
 @Injectable()
 export class UsuariosService {
-  create(UsuarioDto: UsuarioDto) {
+  criaUsuario(UsuarioDto: UsuarioDto) {
     return 'This action adds a new usuario';
   }
 
