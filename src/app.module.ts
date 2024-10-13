@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { dataSourceOptions } from './typeorm/database/data-source';
+import { runSeed } from './typeorm/seeds/main.seed';
 
 @Module({
   imports: [
@@ -11,18 +13,10 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true, 
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.DB_HOST,
-      port: Number(process.env.DB_PORT),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      entities: [`${__dirname}/typeorm/entities/*{.js,.ts}`],
-      synchronize: true, 
-    })
+    TypeOrmModule.forRoot(dataSourceOptions)
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
