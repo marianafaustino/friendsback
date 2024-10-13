@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { dataSourceOptions } from './typeorm/database/data-source';
 import { SolicitacaoModule } from './solicitacao/solicitacao.module';
+import { FeedbackModule } from './feedback/feedback.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { SolicitacaoModule } from './solicitacao/solicitacao.module';
       isGlobal: true, 
     }),
     TypeOrmModule.forRoot(dataSourceOptions),
+    FeedbackModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { SolicitacaoEntity } from './solicitacao.entity';
+import { FeedbackEntity } from './feedback.entity';
 
 @Entity('usuario')
 export class UsuarioEntity {
@@ -17,4 +18,7 @@ export class UsuarioEntity {
 
   @OneToMany(() => SolicitacaoEntity, solicitacao => solicitacao.solicitante)
   solicitacoes: SolicitacaoEntity[];
+
+  @OneToMany(() => FeedbackEntity, feedback => feedback.comentador)
+  feedbacks: FeedbackEntity[];
 }

@@ -16,7 +16,6 @@ export class SolicitacaoService {
   async criaSolicitacao(createSolicitacaoDto: CreateSolicitacaoDto) {
     const novaSolicitacaoEntity = this.solicitacaoRepository.create(createSolicitacaoDto);
     
-    
     return await this.solicitacaoRepository.save(novaSolicitacaoEntity);
   }
 
