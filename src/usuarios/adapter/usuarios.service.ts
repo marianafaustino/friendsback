@@ -4,7 +4,7 @@ import { UsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { UsuarioEntity } from 'src/typeorm/entities/usuario.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IUsuarioPort } from 'src/usuarios/portas/usuarios.port';
+import { IUsuarioPort } from 'src/usuarios/port/usuarios.port';
 
 @Injectable()
 export class UsuariosService implements IUsuarioPort{
