@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { UsuarioDto } from './dto/create-usuario.dto';
-import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { UsuarioDto } from '../dto/create-usuario.dto';
+import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { UsuarioEntity } from 'src/typeorm/entities/usuario.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import { IUsuarioPort } from 'src/usuarios/portas/usuarios.port';
 
 @Injectable()
-export class UsuariosService {
+export class UsuariosService implements IUsuarioPort{
   constructor(
     @InjectRepository(UsuarioEntity)
     private userRepository: Repository<UsuarioEntity>
