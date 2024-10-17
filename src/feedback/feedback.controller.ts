@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { FeedbackService } from './feedback.service';
+import { FeedbackService } from './adapter/feedback.service';
 import { CreateFeedbackDto } from './dto/create-feedback.dto';
 import { UpdateFeedbackDto } from './dto/update-feedback.dto';
 

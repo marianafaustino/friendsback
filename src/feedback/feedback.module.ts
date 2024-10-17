@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FeedbackService } from './feedback.service';
+import { FeedbackService } from './adapter/feedback.service';
 import { FeedbackController } from './feedback.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FeedbackEntity } from 'src/typeorm/entities/feedback.entity';
