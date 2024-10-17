@@ -9,7 +9,7 @@ export class FeedbackController {
 
   @Post()
   create(@Body() createFeedbackDto: CreateFeedbackDto) {
-    return this.feedbackService.criaFeedback(createFeedbackDto);
+    return this.feedbackService.create(createFeedbackDto);
   }
 
   @Get()
@@ -20,15 +20,5 @@ export class FeedbackController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.feedbackService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFeedbackDto: UpdateFeedbackDto) {
-    return this.feedbackService.update(+id, updateFeedbackDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.feedbackService.remove(+id);
   }
 }

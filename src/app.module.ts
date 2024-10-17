@@ -7,7 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { dataSourceOptions } from './typeorm/database/data-source';
 import { SolicitacaoModule } from './solicitacao/solicitacao.module';
 import { FeedbackModule } from './feedback/feedback.module';
-import { EventEmitterModule,EventEmitter2 } from '@nestjs/event-emitter';
+import { EventEmitterModule, EventEmitter2 } from '@nestjs/event-emitter';
 import { SolicitacaoNotificationObserver } from './observers/solicitacao-notification.observer';
 
 @Module({
@@ -19,19 +19,20 @@ import { SolicitacaoNotificationObserver } from './observers/solicitacao-notific
     }),
     TypeOrmModule.forRoot(dataSourceOptions),
     FeedbackModule,
-    EventEmitterModule.forRoot()
+    EventEmitterModule.forRoot(),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SolicitacaoNotificationObserver],
 })
-export class AppModule implements OnModuleInit{
+export class AppModule implements OnModuleInit {
   constructor(
     private readonly eventEmitter: EventEmitter2,
-    private readonly solicitacaoNotificationObserver: SolicitacaoNotificationObserver) {}
+    private readonly solicitacaoNotificationObserver: SolicitacaoNotificationObserver
+  ) {}
 
   onModuleInit() {
     this.solicitacaoNotificationObserver.handle = this.solicitacaoNotificationObserver.handle.bind(this.solicitacaoNotificationObserver);
+    
     this.eventEmitter.on('solicitacao.created', this.solicitacaoNotificationObserver.handle);
   }
 }
-
