@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSolicitacaoDto } from './dto/create-solicitacao.dto';
-import { UpdateSolicitacaoDto } from './dto/update-solicitacao.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SolicitacaoEntity } from 'src/typeorm/entities/solicitacao.entity';
 import { Repository } from 'typeorm';
+import { ISolicitacaoPort } from './port/solicitacao.port';
 
 @Injectable()
-export class SolicitacaoService {
+export class SolicitacaoService implements ISolicitacaoPort{
 
   constructor(
     @InjectRepository(SolicitacaoEntity)
@@ -19,19 +19,14 @@ export class SolicitacaoService {
     return await this.solicitacaoRepository.save(novaSolicitacaoEntity);
   }
 
-  findAll() {
-    return `This action returns all solicitacao`;
+  findAll(): Promise<SolicitacaoEntity[]> {
+    return null;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} solicitacao`;
+  findOne(id: number): Promise<SolicitacaoEntity | null> {
+    return null;
   }
-
-  update(id: number, updateSolicitacaoDto: UpdateSolicitacaoDto) {
-    return `This action updates a #${id} solicitacao`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} solicitacao`;
+  remove(id: number): Promise<SolicitacaoEntity> {
+    return null;
   }
 }
