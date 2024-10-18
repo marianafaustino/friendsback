@@ -8,11 +8,11 @@ dotenv.config()
 //Tirei o .env do git ignore para fazer o deploy no lightsail sem precisar configurar as variáveis de ambiente. Depois acerto.
 export const dataSourceOptions: DataSourceOptions = {
     type: 'postgres',
-    host: process.env.DB_HOST,
-    port: Number(process.env.DB_PORT),
-    username: process.env.DB_USERNAME,
-    password: String(process.env.DB_PASSWORD),
-    database: process.env.DB_NAME,
+    host: 'localhost',
+    port: 5433,
+    username: 'postgres',
+    password: 'Reprograma2024*',
+    database: 'friendsback',
     entities: [UsuarioEntity, SolicitacaoEntity, FeedbackEntity],
     synchronize: true, 
   }
