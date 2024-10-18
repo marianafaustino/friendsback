@@ -9,7 +9,7 @@ dotenv.config()
 export const dataSourceOptions: DataSourceOptions = {
     type: 'postgres',
     host: 'localhost',
-    port: 5433,
+    port: 5432,
     username: 'postgres',
     password: 'Reprograma2024*',
     database: 'friendsback',
