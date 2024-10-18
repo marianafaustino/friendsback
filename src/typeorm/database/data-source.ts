@@ -5,7 +5,7 @@ import { SolicitacaoEntity } from '../entities/solicitacao.entity';
 import { FeedbackEntity } from '../entities/feedback.entity';
 
 dotenv.config()
-
+//Tirei o .env do git ignore para fazer o deploy no lightsail sem precisar configurar as variáveis de ambiente. Depois acerto.
 export const dataSourceOptions: DataSourceOptions = {
     type: 'postgres',
     host: process.env.DB_HOST,
